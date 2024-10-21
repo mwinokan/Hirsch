@@ -27,8 +27,11 @@ def hirsch(
 
     x_max = x_max or len(populations)
 
-    x = linspace(x_min, x_max, len(populations))
-    q = linspace(x_min,x_max,len(populations)*int(round(1/precision, 0)))
+    n = len(populations)
+    precision = int(1.0/precision)
+
+    x = linspace(x_min, x_max, n)
+    q = linspace(x_min,x_max,n*precision+1)
     
     y_smooth = interp(q, x, y)   
     
