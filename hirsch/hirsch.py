@@ -5,8 +5,8 @@ from collections.abc import Callable, Iterable
 def hirsch(
     populations: Iterable[float],
     x_min: float = 0.0,
-    x_max: float = 1.0,
-    precision: int = 10,
+    x_max: float | None = None,
+    precision: int = 1,
     sort: bool = True,
     plot: bool = False,
 ) -> float:
@@ -15,7 +15,7 @@ def hirsch(
     
     :param populations: Iterable of populations
     :x_min: minimum x-value
-    :x_max: maximum x-value
+    :x_max: maximum x-value, defaults to number of data points
     :precision: number of interpolation points between data points
     :sort: sort the populations, set to False if populations is already sorted
     """
@@ -25,8 +25,10 @@ def hirsch(
     else:
         y = populations
 
+    x_max = x_max or len(populations)
+
     x = linspace(x_min, x_max, len(populations))
-    q = linspace(x_min,x_max,len(populations)*precision)
+    q = linspace(x_min,x_max,len(populations)*(1/precision))
     
     y_smooth = interp(q, x, y)   
     
