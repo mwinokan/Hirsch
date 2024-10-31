@@ -1,4 +1,7 @@
 
+import sys
+sys.path.append('..')
+
 from hirsch import hirsch
 
 DISCRETE_TESTS = [
