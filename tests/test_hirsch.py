@@ -1,8 +1,6 @@
 
-import sys
-sys.path.append('..')
-
 import hirsch
+print(hirsch.__file__)
 
 DISCRETE_TESTS = [
 	([1], 1.0),
