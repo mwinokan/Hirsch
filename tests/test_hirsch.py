@@ -2,7 +2,7 @@
 import sys
 sys.path.append('..')
 
-from hirsch import hirsch
+import hirsch
 
 DISCRETE_TESTS = [
 	([1], 1.0),
@@ -28,15 +28,23 @@ POPULATION_TESTS = [
 
 def test_discrete():
 	for samples, h_correct in DISCRETE_TESTS:
-		h = hirsch(samples)
+		h = hirsch.hirsch(samples)
 		assert h == h_correct, f"{samples=} {h_correct=} {h=}"
 
 def test_continuous():
 	for samples, h_correct in CONTINUOUS_TESTS:
-		h = hirsch(samples, continuous=True)
+		h = hirsch.hirsch(samples, continuous=True)
 		assert h == h_correct, f"{samples=} {h_correct=} {h=}"
 
 def test_populations():
 	for samples, populations, h_correct in POPULATION_TESTS:
-		h = hirsch(samples, populations)
+		h = hirsch.hirsch(samples, populations)
 		assert h == h_correct, f"{samples=} {populations=} {h_correct=} {h=}"
+
+def main():
+	test_discrete()
+	test_continuous()
+	test_populations()
+
+if __name__ == '__main__':
+	main()
