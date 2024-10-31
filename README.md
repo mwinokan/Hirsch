@@ -25,3 +25,12 @@ from hirsch import hirsch
 fractions = [0.1,0.5,0.6,0.3,0.2,0.5,0.4]
 h = hirsch(fractions, x_max=1, precision=0.01)
 ```
+
+Calculate a continuous h-index for a set of samples from known populations:
+
+```
+from hirsch import hirsch
+samples = [1,2,3,4,10,20,10]
+populations = [10,10,10,10,20,30,40]
+h = hirsch(samples, populations)
+```
