@@ -5,7 +5,7 @@ from collections.abc import Iterable
 def h_index(x,y):
     last_a = x[0]
     for a,b in zip(x,y):
-        assert b > 0, "Negative sample value"
+        assert b >= 0, f"Negative sample value {b=}"
         if a > b:
             break
         last_a = a
