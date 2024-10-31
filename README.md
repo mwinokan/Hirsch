@@ -1,5 +1,5 @@
 # Hirsch 🦌
-Abstracted, continuous, and normalised of version of the Hirsch index (h-index) from academic writing for use as a statistical measure of even distribution
+Python implementation of the familiar discrete Hirsch index (h-index) from academic writing, with an abstracted continuous version for use as a statistical measure of even distribution
 
 ## Installation
 
@@ -23,10 +23,10 @@ Calculate a continuous h-index for some normalised and binned data, e.g. fractio
 ```
 from hirsch import hirsch
 fractions = [0.1,0.5,0.6,0.3,0.2,0.5,0.4]
-h = hirsch(fractions, x_max=1, precision=0.01)
+h = hirsch(fractions, continuous=True)
 ```
 
-Calculate a continuous h-index for a set of samples from known populations:
+Calculate a continuous h-index for a set of samples from known populations (continuous=True assumed):
 
 ```
 from hirsch import hirsch
